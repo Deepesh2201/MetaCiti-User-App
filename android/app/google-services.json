@@ -1,0 +1,83 @@
+{
+  "project_info": {
+    "project_number": "1012397344271",
+    "firebase_url": "https://metaappnew-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "metaappnew",
+    "storage_bucket": "metaappnew.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1012397344271:android:afb5a2126e85ff42c0457a",
+        "android_client_info": {
+          "package_name": "com.metaciti.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1012397344271-ef8kj78h9mib1p34p2n4klfs0rl03fvp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgMVWT1YtWp25PQ4_x-XCJJF1yt7dermk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1012397344271-ef8kj78h9mib1p34p2n4klfs0rl03fvp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1012397344271-reghgiqjt34cqul8e8o0q4qfkfa9psp5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.metaciti.drv"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1012397344271:android:0be56b163677551fc0457a",
+        "android_client_info": {
+          "package_name": "com.metaciti.driverapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1012397344271-ef8kj78h9mib1p34p2n4klfs0rl03fvp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgMVWT1YtWp25PQ4_x-XCJJF1yt7dermk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1012397344271-ef8kj78h9mib1p34p2n4klfs0rl03fvp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1012397344271-reghgiqjt34cqul8e8o0q4qfkfa9psp5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.metaciti.drv"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
