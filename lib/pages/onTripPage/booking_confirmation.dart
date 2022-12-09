@@ -1515,7 +1515,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                                                                   mainAxisAlignment: MainAxisAlignment.end,
                                                                                                                   children: [
                                                                                                                     Text(
-                                                                                                                      rentalOption[i]['currency'] + ' ' + rentalOption[i]['fare_amount'].toStringAsFixed(2),
+                                                                                                                      rentalOption[i]['currency'] + ' ' + rentalOption[i]['fare_amount'].toString(),
                                                                                                                       style: GoogleFonts.roboto(fontSize: media.width * fourteen, color: textColor, fontWeight: FontWeight.w600),
                                                                                                                     ),
                                                                                                                   ],
