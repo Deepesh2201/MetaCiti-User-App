@@ -32,10 +32,10 @@
               "client_type": 3
             },
             {
-              "client_id": "1012397344271-reghgiqjt34cqul8e8o0q4qfkfa9psp5.apps.googleusercontent.com",
+              "client_id": "1012397344271-a1hauj1bmipqbqac4bb8hfc518j1ibqi.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.metaciti.drv"
+                "bundle_id": "com.metaciti.app"
               }
             }
           ]
@@ -68,10 +68,10 @@
               "client_type": 3
             },
             {
-              "client_id": "1012397344271-reghgiqjt34cqul8e8o0q4qfkfa9psp5.apps.googleusercontent.com",
+              "client_id": "1012397344271-a1hauj1bmipqbqac4bb8hfc518j1ibqi.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.metaciti.drv"
+                "bundle_id": "com.metaciti.app"
               }
             }
           ]

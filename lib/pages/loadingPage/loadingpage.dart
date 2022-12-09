@@ -98,31 +98,32 @@ class _LoadingPageState extends State<LoadingPage> {
       var version = _version.value.toString().split('.');
       var package = _package.version.toString().split('.');
 
-      for (var i = 0; i < version.length || i < package.length; i++) {
-        if (i < version.length && i < package.length) {
-          if (int.parse(package[i]) < int.parse(version[i])) {
-            setState(() {
-              updateAvailable = true;
-            });
-            break;
-          } else if (int.parse(package[i]) > int.parse(version[i])) {
-            setState(() {
-              updateAvailable = false;
-            });
-            break;
-          }
-        } else if (i >= version.length && i < package.length) {
-          setState(() {
-            updateAvailable = false;
-          });
-          break;
-        } else if (i < version.length && i >= package.length) {
-          setState(() {
-            updateAvailable = true;
-          });
-          break;
-        }
-      }
+      // for (var i = 0; i < version.length || i < package.length; i++) {
+      //   if (i < version.length && i < package.length) {
+      //     if (int.parse(package[i]) < int.parse(version[i])) {
+      //       setState(() {
+      //         updateAvailable = true;
+      //       });
+      //       break;
+      //     }
+      //     else if (int.parse(package[i]) > int.parse(version[i])) {
+      //       setState(() {
+      //         updateAvailable = false;
+      //       });
+      //       break;
+      //     }
+      //   } else if (i >= version.length && i < package.length) {
+      //     setState(() {
+      //       updateAvailable = false;
+      //     });
+      //     break;
+      //   } else if (i < version.length && i >= package.length) {
+      //     setState(() {
+      //       updateAvailable = true;
+      //     });
+      //     break;
+      //   }
+      // }
     }
 
     if (updateAvailable == false) {
