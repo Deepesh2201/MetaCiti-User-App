@@ -37,7 +37,7 @@ var audio = 'audio/notification_sound.mp3';
 bool internet = true;
 
 //base url
-String url = 'https://metaciti.nexteck.in/public/'; //please add '/' at the end of url as 'yourwebsite.com/'
+String url = 'http://metaciti.in/public/'; //please add '/' at the end of url as 'yourwebsite.com/'
 String mapkey = 'AIzaSyB8uMui2d0RADfQucm22_ogcZ5jaIbHjGQ';
 
 //check internet connection
