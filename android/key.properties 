@@ -1,0 +1,4 @@
+storePassword=
+keyPassword=
+keyAlias=usertaxiapp
+storeFile=PATH_OF_JKS_FILE
