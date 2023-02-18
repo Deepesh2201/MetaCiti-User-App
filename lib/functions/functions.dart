@@ -5,6 +5,8 @@ import 'dart:math';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:http_interceptor/http_interceptor.dart';
+import 'package:tagyourtaxi_driver/global/interceptor/authentication.dart';
 // import 'package:location/location.dart';
 import 'package:tagyourtaxi_driver/pages/NavigatorPages/editprofile.dart';
 import 'package:tagyourtaxi_driver/pages/NavigatorPages/history.dart';
@@ -15,7 +17,7 @@ import 'package:tagyourtaxi_driver/pages/login/login.dart';
 import 'package:tagyourtaxi_driver/pages/onTripPage/map_page.dart';
 import 'package:tagyourtaxi_driver/pages/onTripPage/review_page.dart';
 import 'package:tagyourtaxi_driver/pages/referralcode/referral_code.dart';
-import 'package:http/http.dart' as http;
+import 'package:http/http.dart' as http_;
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -39,7 +41,9 @@ bool internet = true;
 //base url
 String url = 'http://metaciti.in/public/'; //please add '/' at the end of url as 'yourwebsite.com/'
 String mapkey = 'AIzaSyB8uMui2d0RADfQucm22_ogcZ5jaIbHjGQ';
-
+Client http = InterceptedClient.build(interceptors:[
+  AuthenticationInterceptor(),
+]);
 //check internet connection
 
 checkInternetConnection() {
@@ -325,10 +329,10 @@ registerUser() async {
   dynamic result;
   try {
     final response =
-        http.MultipartRequest('POST', Uri.parse('${url}api/v1/user/register'));
+        MultipartRequest('POST', Uri.parse('${url}api/v1/user/register'));
     response.headers.addAll({'Content-Type': 'application/json'});
     response.files.add(
-        await http.MultipartFile.fromPath('profile_picture', proImageFile1));
+        await MultipartFile.fromPath('profile_picture', proImageFile1));
     response.fields.addAll({
       "name": name,
       "mobile": phnumber,
@@ -339,8 +343,8 @@ registerUser() async {
       'lang': choosenLanguage,
     });
 
-    var request = await response.send();
-    var respon = await http.Response.fromStream(request);
+    var request = await http.send(response);
+    var respon = await Response.fromStream(request);
 
     if (respon.statusCode == 200) {
       var jsonVal = jsonDecode(respon.body);
@@ -2603,18 +2607,18 @@ cashFreePaymentSuccess() async {
 updateProfile(name, email) async {
   dynamic result;
   try {
-    var response = http.MultipartRequest(
+    var response = MultipartRequest(
       'POST',
       Uri.parse('${url}api/v1/user/profile'),
     );
     response.headers
         .addAll({'Authorization': 'Bearer ${bearerToken[0].token}'});
     response.files
-        .add(await http.MultipartFile.fromPath('profile_picture', imageFile));
+        .add(await MultipartFile.fromPath('profile_picture', imageFile));
     response.fields['email'] = email;
     response.fields['name'] = name;
-    var request = await response.send();
-    var respon = await http.Response.fromStream(request);
+    var request = await http.send(response);
+    var respon = await Response.fromStream(request);
     final val = jsonDecode(respon.body);
     if (request.statusCode == 200) {
       result = 'success';
@@ -2636,7 +2640,7 @@ updateProfile(name, email) async {
 updateProfileWithoutImage(name, email) async {
   dynamic result;
   try {
-    var response = http.MultipartRequest(
+    var response = MultipartRequest(
       'POST',
       Uri.parse('${url}api/v1/user/profile'),
     );
@@ -2644,8 +2648,8 @@ updateProfileWithoutImage(name, email) async {
         .addAll({'Authorization': 'Bearer ${bearerToken[0].token}'});
     response.fields['email'] = email;
     response.fields['name'] = name;
-    var request = await response.send();
-    var respon = await http.Response.fromStream(request);
+    var request = await http.send(response);
+    var respon = await Response.fromStream(request);
     final val = jsonDecode(respon.body);
     if (request.statusCode == 200) {
       result = 'success';

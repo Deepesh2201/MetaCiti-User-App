@@ -454,7 +454,7 @@ class _NavDrawerState extends State<NavDrawer> {
                         ),
 
                         //delete account
-                        InkWell(
+                        /*InkWell(
                           onTap: () {
                             setState(() {
                               deleteAccount = true;
@@ -487,7 +487,7 @@ class _NavDrawerState extends State<NavDrawer> {
                               ],
                             ),
                           ),
-                        ),
+                        ),*/
 
                         //logout
                         InkWell(

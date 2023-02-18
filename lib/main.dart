@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:one_context/one_context.dart';
 import 'package:tagyourtaxi_driver/functions/functions.dart';
 import 'package:tagyourtaxi_driver/functions/notifications.dart';
 import 'pages/loadingPage/loadingpage.dart';
@@ -10,6 +11,7 @@ void main() async {
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   await Firebase.initializeApp();
+  OneContext().key = GlobalKey<NavigatorState>();
   checkInternetConnection();
 
   initMessaging();
@@ -38,6 +40,10 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             title: 'Meta Citi',
             theme: ThemeData(),
+            navigatorKey: OneContext().key,
+            builder: (context, child) {
+              return OneContext().builder(context, child, mediaQueryData: MediaQuery.of(context).copyWith(textScaleFactor: 1.0));
+            },
             home: const LoadingPage()));
   }
 }
