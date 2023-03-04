@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:log_print/log_print.dart';
+import 'package:log_print/log_print_config.dart';
 import 'package:one_context/one_context.dart';
 import 'package:tagyourtaxi_driver/functions/functions.dart';
 import 'package:tagyourtaxi_driver/functions/notifications.dart';
@@ -8,6 +10,7 @@ import 'package:flutter/services.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  setLogPrintConfig(LogPrintConfig(colorful: true, debugMode: true));
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   await Firebase.initializeApp();
@@ -42,7 +45,9 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(),
             navigatorKey: OneContext().key,
             builder: (context, child) {
-              return OneContext().builder(context, child, mediaQueryData: MediaQuery.of(context).copyWith(textScaleFactor: 1.0));
+              return OneContext().builder(context, child,
+                  mediaQueryData:
+                      MediaQuery.of(context).copyWith(textScaleFactor: 1.0));
             },
             home: const LoadingPage()));
   }

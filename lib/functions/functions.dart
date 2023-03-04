@@ -39,9 +39,10 @@ var audio = 'audio/notification_sound.mp3';
 bool internet = true;
 
 //base url
-String url = 'http://metaciti.in/public/'; //please add '/' at the end of url as 'yourwebsite.com/'
+String url =
+    'http://metaciti.in/public/'; //please add '/' at the end of url as 'yourwebsite.com/'
 String mapkey = 'AIzaSyB8uMui2d0RADfQucm22_ogcZ5jaIbHjGQ';
-Client http = InterceptedClient.build(interceptors:[
+Client http = InterceptedClient.build(interceptors: [
   AuthenticationInterceptor(),
 ]);
 //check internet connection
@@ -61,7 +62,7 @@ checkInternetConnection() {
 }
 
 void printWrapped(String text) {
-  final pattern = RegExp('.{1,800}'); // 800 is the size of each chunk
+  final pattern = RegExp('.{1,1000}'); // 1000 is the size of each chunk
   pattern.allMatches(text).forEach((match) => debugPrint(match.group(0)));
 }
 
@@ -331,8 +332,8 @@ registerUser() async {
     final response =
         MultipartRequest('POST', Uri.parse('${url}api/v1/user/register'));
     response.headers.addAll({'Content-Type': 'application/json'});
-    response.files.add(
-        await MultipartFile.fromPath('profile_picture', proImageFile1));
+    response.files
+        .add(await MultipartFile.fromPath('profile_picture', proImageFile1));
     response.fields.addAll({
       "name": name,
       "mobile": phnumber,
@@ -935,6 +936,7 @@ etaRequest() async {
         }));
 
     if (response.statusCode == 200) {
+      printWrapped(response.body);
       etaDetails = jsonDecode(response.body)['data'];
       choosenVehicle =
           etaDetails.indexWhere((element) => element['is_default'] == true);
@@ -979,6 +981,7 @@ etaRequestWithPromo() async {
         }));
 
     if (response.statusCode == 200) {
+      printWrapped(response.body);
       etaDetails = jsonDecode(response.body)['data'];
       promoCode = '';
       promoStatus = 1;
