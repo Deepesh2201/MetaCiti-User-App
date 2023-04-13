@@ -39,8 +39,8 @@ var audio = 'audio/notification_sound.mp3';
 bool internet = true;
 
 //base url
-String url =
-    'http://metaciti.in/public/'; //please add '/' at the end of url as 'yourwebsite.com/'
+String url = "http://speedobiketaxi.com/public/";
+//'http://metaciti.in/public/'; //please add '/' at the end of url as 'yourwebsite.com/'
 String mapkey = 'AIzaSyB8uMui2d0RADfQucm22_ogcZ5jaIbHjGQ';
 Client http = InterceptedClient.build(interceptors: [
   AuthenticationInterceptor(),
@@ -332,8 +332,7 @@ registerUser() async {
     final response =
         MultipartRequest('POST', Uri.parse('${url}api/v1/user/register'));
     response.headers.addAll({'Content-Type': 'application/json'});
-    response.files
-        .add(await MultipartFile.fromPath('profile_picture', proImageFile1));
+    //response.files.add(await MultipartFile.fromPath('profile_picture', proImageFile1));
     response.fields.addAll({
       "name": name,
       "mobile": phnumber,
@@ -342,6 +341,8 @@ registerUser() async {
       "country": countries[phcode]['dial_code'],
       "login_by": (platform == TargetPlatform.android) ? 'android' : 'ios',
       'lang': choosenLanguage,
+      'profile_picture':
+          "https://images.pexels.com/photos/13861/IMG_3496bfree.jpg?cs=srgb&dl=pexels-jeshootscom-13861.jpg&fm=jpg"
     });
 
     var request = await http.send(response);
